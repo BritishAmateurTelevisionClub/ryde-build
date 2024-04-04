@@ -1,3 +1,6 @@
+202403220
+Add support for Picotuner
+
 202309080
 Enable scrolling of long preset lists in OSD
 Add optional audio controls to OSD

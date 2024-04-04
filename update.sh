@@ -124,6 +124,12 @@ fi
 
 sudo apt-get -y dist-upgrade # Upgrade all the installed packages to their latest version
 
+echo
+echo "Checking for EEPROM Update"
+echo
+
+sudo rpi-eeprom-update -a                            # Update will be installed on reboot if required
+
 # --------- Install new packages as Required ---------
 
 sudo apt-get -y install vlc                       # May have been removed earlier
@@ -173,6 +179,12 @@ rm -rf /home/pi/longmynd
 cp -r ryde-build/longmynd/ longmynd/
 cd longmynd
 make
+
+# Check the minitiouner.rules file and update if required
+grep -q "ba2c" /etc/udev/rules.d/minitiouner.rules
+if [ $? -ne 0 ]; then  #  file is not there or has the wrong entry for PicoTuner
+  sudo cp minitiouner.rules /etc/udev/rules.d/
+fi
 cd /home/pi
 
 # Download and compile pyDispmanx
