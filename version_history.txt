@@ -1,3 +1,6 @@
+202508230
+Use latest WiringPi Version
+
 202403220
 Add support for Picotuner
 

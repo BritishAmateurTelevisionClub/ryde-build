@@ -106,9 +106,16 @@ echo "------------------------------"
 echo "----- Installing WiringPi-----"
 echo "------------------------------"
 echo
-cd /tmp
-wget https://project-downloads.drogon.net/wiringpi-latest.deb
-sudo dpkg -i wiringpi-latest.deb
+cd /home/pi
+git clone https://github.com/WiringPi/WiringPi.git
+cd WiringPi
+./build debian
+
+# Read latest WiringPi version number and install it
+vMaj=`cut -d. -f1 VERSION`
+vMin=`cut -d. -f2 VERSION`
+mv debian-template/wiringpi_"$vMaj"."$vMin"_armhf.deb .
+sudo apt install ./wiringpi_"$vMaj"."$vMin"_armhf.deb
 cd /home/pi
 
 # Download the previously selected version of Ryde Build
