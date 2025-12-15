@@ -43,6 +43,9 @@ cd /home/pi
 wget https://github.com/${GIT_SRC}/ryde-build/raw/master/configs/vlc
 sudo cp vlc /etc/apt/preferences.d/vlc
 
+# Amend the sources.list to legacy
+sudo bash -c 'echo -e "deb http://legacy.raspbian.org/raspbian/ buster main contrib non-free rpi" > /etc/apt/sources.list' 
+
 # Update the package manager
 echo
 echo "------------------------------------"

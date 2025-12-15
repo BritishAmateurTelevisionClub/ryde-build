@@ -1,3 +1,6 @@
+202512150
+Amend the sources.list to legacy
+
 202510060
 Add Sony RMT-D248P Remote Control
 
