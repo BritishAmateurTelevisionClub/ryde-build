@@ -148,14 +148,6 @@ sudo apt-get -y install vlc-plugin-base           # for Stream RX
 pip3 uninstall -y pyftdi                          # uninstall old version of pyftdi
 pip3 install pyftdi==0.53.1                       # and install new version
 
-if [ ! -f "/usr/lib/libwiringPi.so" ]; then       # Need to install WiringPi
-  echo "Installing WiringPi"
-  cd /tmp
-  wget https://project-downloads.drogon.net/wiringpi-latest.deb
-  sudo dpkg -i wiringpi-latest.deb
-  cd /home/pi
-fi
-
 # --------- Overwrite and compile all the software components -----
 
 # Download the previously selected version of Ryde Build

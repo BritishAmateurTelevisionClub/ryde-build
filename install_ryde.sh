@@ -112,6 +112,13 @@ echo
 cd /home/pi
 git clone https://github.com/WiringPi/WiringPi.git
 cd WiringPi
+
+# Modify so that it installs on 32-bit buster
+cd wiringPi
+sed -i -e 's/\(\[\[gnu::packed\]\]\)//g' bcm_registers.h
+sed -i -e 's/\(\[\[gnu::packed\]\]\)//g' rp1_registers.h
+cd ~/WiringPi
+
 ./build debian
 
 # Read latest WiringPi version number and install it
